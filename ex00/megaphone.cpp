@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 11:39:52 by mkamei            #+#    #+#             */
-/*   Updated: 2021/11/08 15:00:25 by mkamei           ###   ########.fr       */
+/*   Updated: 2021/11/11 15:28:10 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 int	main(int argc, char **argv)
 {
-	int					i;
-	int					j;
 	const std::locale	l = std::locale::classic();
 
 	if (argc <= 1)
@@ -24,12 +22,12 @@ int	main(int argc, char **argv)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 		return (0);
 	}
-	i = 0;
-	while (++i < argc)
+	for (int i = 1; i < argc; i++)
 	{
-		j = -1;
-		while (argv[i][++j])
+		for (int j = 0; argv[i][j]; j++)
+		{
 			std::cout << std::toupper<char>(argv[i][j], l);
+		}
 	}
 	std::cout << std::endl;
 	return (0);
