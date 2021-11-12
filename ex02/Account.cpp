@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 17:33:54 by mkamei            #+#    #+#             */
-/*   Updated: 2021/11/12 13:07:15 by mkamei           ###   ########.fr       */
+/*   Updated: 2021/11/12 13:24:04 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,8 +133,8 @@ bool	Account::makeWithdrawal(int withdrawal)
 			<< "amount:" << _amount << ";"
 			<< "nb_withdrawals:" << _nbWithdrawals
 			<< std::endl;
+		return (true);
 	}
-	return (1);
 }
 
 int	Account::checkAmount(void) const
