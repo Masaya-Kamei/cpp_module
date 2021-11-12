@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 14:06:52 by mkamei            #+#    #+#             */
-/*   Updated: 2021/11/12 17:02:06 by mkamei           ###   ########.fr       */
+/*   Updated: 2021/11/12 17:17:22 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 int	main(void)
 {
 	std::cout << "[ newZombie() ]" << std::endl;
-	Zombie *abc = newZombie("abc");
-	abc->announce();
-	delete abc;
+	Zombie *taro = newZombie("taro");
+	taro->announce();
+	delete taro;
 
 	std::cout << std::endl;
 
