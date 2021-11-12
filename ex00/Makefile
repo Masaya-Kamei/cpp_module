@@ -6,11 +6,11 @@
 #    By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/12 14:01:13 by mkamei            #+#    #+#              #
-#    Updated: 2021/11/12 16:38:14 by mkamei           ###   ########.fr        #
+#    Updated: 2021/11/12 17:11:52 by mkamei           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCSNAME=	main.cpp newZombie.cpp Zombie.cpp randomChump.cpp
+SRCSNAME=	main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 SRCSDIR	=	.
 SRCS	=	$(addprefix $(SRCDIR)/, $(SRCNAME))
 
