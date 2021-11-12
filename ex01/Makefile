@@ -6,11 +6,11 @@
 #    By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/09 08:50:55 by mkamei            #+#    #+#              #
-#    Updated: 2021/11/10 18:01:09 by mkamei           ###   ########.fr        #
+#    Updated: 2021/11/12 13:35:23 by mkamei           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCSNAME=	main.cpp contact.cpp phonebook.cpp utils.cpp
+SRCSNAME=	main.cpp Contact.cpp Phonebook.cpp utils.cpp
 SRCSDIR	=	.
 SRCS	=	$(addprefix $(SRCDIR)/, $(SRCNAME))
 
