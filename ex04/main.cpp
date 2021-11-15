@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 17:02:42 by mkamei            #+#    #+#             */
-/*   Updated: 2021/11/14 13:03:18 by mkamei           ###   ########.fr       */
+/*   Updated: 2021/11/15 11:56:06 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ static int	ReplaceString(
 
 	while (std::getline(ifs, buf))
 	{
+		if (!ifs.eof())
+			buf.push_back('\n');
 		pos = buf.find(s1);
 		while (pos != std::string::npos)
 		{
@@ -37,8 +39,6 @@ static int	ReplaceString(
 			pos = buf.find(s1, pos + s2.length());
 		}
 		ofs << buf << std::flush;
-		if (!ifs.eof())
-			ofs << std::endl;
 	}
 	if (!ifs.eof())
 		return (PutErrMsg("Read Error.", 1));
