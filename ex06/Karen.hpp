@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 13:22:27 by mkamei            #+#    #+#             */
-/*   Updated: 2021/11/15 11:47:21 by mkamei           ###   ########.fr       */
+/*   Updated: 2021/11/15 13:54:24 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ private:
 	static void	warning(void);
 	static void	error(void);
 
-	static const std::string	level_strings[4];
-	static void					(*level_funcs[4])(void);
+	static const std::string	level_strings_[4];
+	static void					(*level_funcs_[4])(void);
 
 };
 
