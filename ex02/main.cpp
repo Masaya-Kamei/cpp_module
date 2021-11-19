@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 17:21:58 by mkamei            #+#    #+#             */
-/*   Updated: 2021/11/19 10:11:37 by mkamei           ###   ########.fr       */
+/*   Updated: 2021/11/19 12:43:51 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static void	original_test(void)
 	std::cout << a << " - " << b << "\t\t= " << (a - b) << std::endl;
 	std::cout << a << " * " << b << "\t\t= " << (a * b) << std::endl;
 	std::cout << a << " / " << b << "\t\t= " << (a / b) << std::endl;
+	std::cout << b << " / " << a << "\t\t= " << (b / a) << std::endl;
 	std::cout << "-" << a << " - " << "+" << b << "\t\t= " << (-a - +b) << std::endl;
 	std::cout << a++ << "++" << "\t\t\t= " << a << std::endl;
 	std::cout << "++" << ++a << "\t\t= " << a << std::endl;

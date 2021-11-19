@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 16:24:16 by mkamei            #+#    #+#             */
-/*   Updated: 2021/11/19 10:10:06 by mkamei           ###   ########.fr       */
+/*   Updated: 2021/11/19 12:49:55 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ const Fixed	Fixed::operator/(const Fixed& rhs) const
 	Fixed	result;
 
 	result.fixed_point_value_
-		= (fixed_point_value_ / rhs.fixed_point_value_) << fractional_bits_num_;
+		= (fixed_point_value_ << fractional_bits_num_ ) / rhs.fixed_point_value_;
 	return (result);
 }
 
