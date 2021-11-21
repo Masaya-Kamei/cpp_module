@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 13:41:12 by mkamei            #+#    #+#             */
-/*   Updated: 2021/11/20 14:59:23 by mkamei           ###   ########.fr       */
+/*   Updated: 2021/11/20 17:58:28 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,27 @@ ClapTrap::ClapTrap(const std::string name) :
 	name_(name), hit_points_(10), max_hit_points_(hit_points_),
 	energy_points_(10), attack_damage_(0)
 {
-	std::cout << "CrapTrap default constructor called" << std::endl;
+	std::cout << "CrapTrap " << name_ << " constructor called." << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap& rhs)
+{
+	*this = rhs;
+}
+
+ClapTrap&	ClapTrap::operator=(const ClapTrap& rhs)
+{
+	name_ = rhs.name_;
+	hit_points_ = rhs.hit_points_;
+	max_hit_points_ = rhs.max_hit_points_;
+	energy_points_ = rhs.energy_points_;
+	attack_damage_ = rhs.attack_damage_;
+	return (*this);
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "CrapTrap destructor called" << std::endl;
+	std::cout << "CrapTrap " << name_ << " destructor called." << std::endl;
 }
 
 void	ClapTrap::attack(std::string const& target)
