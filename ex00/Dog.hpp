@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 10:18:13 by mkamei            #+#    #+#             */
-/*   Updated: 2021/12/05 10:51:40 by mkamei           ###   ########.fr       */
+/*   Updated: 2021/12/05 12:05:02 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public:
 	Dog&	operator=(const Dog& rhs);
 	~Dog();
 
-	void		makeSound(void) const;
+	void	makeSound(void) const;
 };
 
 #endif

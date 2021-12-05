@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 08:42:27 by mkamei            #+#    #+#             */
-/*   Updated: 2021/12/05 10:51:56 by mkamei           ###   ########.fr       */
+/*   Updated: 2021/12/05 12:04:54 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public:
 	Cat&	operator=(const Cat& rhs);
 	~Cat();
 
-	void		makeSound(void) const;
+	void	makeSound(void) const;
 };
 
 #endif
