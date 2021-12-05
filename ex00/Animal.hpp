@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 16:55:02 by mkamei            #+#    #+#             */
-/*   Updated: 2021/12/05 10:53:11 by mkamei           ###   ########.fr       */
+/*   Updated: 2021/12/05 14:52:19 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ public:
 
 protected:
 
-	std::string	type;
+	std::string	type_;
 
 };
 
