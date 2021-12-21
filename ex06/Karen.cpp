@@ -6,17 +6,12 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 13:22:15 by mkamei            #+#    #+#             */
-/*   Updated: 2021/11/15 13:55:03 by mkamei           ###   ########.fr       */
+/*   Updated: 2021/12/21 15:39:03 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Karen.hpp"
 #include <iostream>
-
-const std::string	Karen::level_strings_[4]
-	= {"DEBUG", "INFO", "WARNING", "ERROR"};
-void	(*Karen::level_funcs_[4])(void)
-	= {Karen::debug, Karen::info, Karen::warning, Karen::error};
 
 Karen::Karen()
 {
@@ -28,15 +23,26 @@ Karen::~Karen()
 
 void	Karen::complain(std::string level)
 {
+	const std::string	level_strings_[4]
+		= {"DEBUG", "INFO", "WARNING", "ERROR"};
+
 	for (int i = 0; i < 4; i++)
 	{
 		if (level_strings_[i] == level)
 		{
-			for (int j = i; j < 4; j++)
+			switch (i)
 			{
-				if (j != i)
+				case 0:
+					debug();
 					std::cout << std::endl;
-				level_funcs_[j]();
+				case 1:
+					info();
+					std::cout << std::endl;
+				case 2:
+					warning();
+					std::cout << std::endl;
+				case 3:
+					error();
 			}
 			return ;
 		}
