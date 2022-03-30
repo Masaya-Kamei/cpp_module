@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 17:10:07 by mkamei            #+#    #+#             */
-/*   Updated: 2021/11/11 15:16:31 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/03/30 10:54:36 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,18 @@ static void	StrTrim(std::string& str, const char c)
 		str = str.substr(start, (end - start + 1));
 }
 
-bool	GetWord(const std::string prompt, std::string& word, const int prompt_width)
+t_status	ReadLine(const std::string &prompt, std::string &line, const int prompt_width)
 {
-	word.clear();
-	while (word.empty())
+	line.clear();
+	while (line.empty())
 	{
 		std::cout << std::setw(prompt_width) << prompt << " " << std::flush;
-		if (!std::getline(std::cin, word))
-			return (0);
-		StrTrim(word, ' ');
+		std::getline(std::cin, line);
+		if (!std::cin.good())
+			return (FAIL);
+		StrTrim(line, ' ');
 	}
-	return (1);
+	return (SUCCESS);
 }
 
 void	StrToUpper(std::string& str)
@@ -47,7 +48,7 @@ void	StrToUpper(std::string& str)
 	}
 }
 
-bool	isNumber(const std::string& str)
+bool	isStrDigit(const std::string& str)
 {
 	for (int i = 0; str[i]; i++)
 	{
@@ -57,20 +58,8 @@ bool	isNumber(const std::string& str)
 	return (1);
 }
 
-void	PutErrMsg(const std::string& errmsg)
+t_status	PutErrMsg(const std::string& errmsg, const t_status st)
 {
 	std::cerr << errmsg << std::endl;
-}
-
-int	GetMaxStrLen(const std::string strs[], const int count)
-{
-	std::string::size_type	max;
-
-	max = 0;
-	for (int i = 0; i < count; i++)
-	{
-		if (strs[i].size() > max)
-			max = strs[i].size();
-	}
-	return (max);
+	return (st);
 }

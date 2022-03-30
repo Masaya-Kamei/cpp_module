@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.hpp                                        :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 16:00:10 by mkamei            #+#    #+#             */
-/*   Updated: 2021/11/12 13:33:14 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/03/30 10:59:44 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,16 @@
 
 class Contact
 {
+public:
+
+	Contact();
+	~Contact();
+
+	t_status	ReceiveContact();
+	static void	PutFieldsNameOutline();
+	void		PutContactOutline(const int index) const;
+	void		PutContact() const;
+
 private:
 
 	enum FieldIndex
@@ -31,18 +41,8 @@ private:
 	};
 
 	static const std::string			fields_name_[FIELD_NUM];
-	static const std::string::size_type	max_field_name_len_;
+	static const int					max_field_name_len_;
 	std::string							fields_[FIELD_NUM];
-
-public:
-
-	Contact();
-	~Contact();
-
-	bool		ReceiveContact();
-	static void	PutFieldsNameOutline();
-	void		PutContactOutline(const int index) const;
-	void		PutContact() const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 15:22:36 by mkamei            #+#    #+#             */
-/*   Updated: 2021/11/12 13:34:51 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/03/30 10:55:54 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,21 @@ int	main(void)
 {
 	std::string	line;
 	Phonebook	phonebook;
+	t_status	status;
 
 	PutUsage();
-	while (GetWord(">", line))
+	status = SUCCESS;
+	while (status == SUCCESS && ReadLine(">", line) == SUCCESS)
 	{
 		StrToUpper(line);
 		if (line == "ADD")
-			phonebook.AddContact();
+			status = phonebook.AddContact();
 		else if (line == "SEARCH")
-			phonebook.SearchContact();
+			status = phonebook.SearchContact();
 		else if (line == "EXIT")
 			break ;
 		else
-			PutErrMsg("Unknown Command.");
+			std::cerr << "Unknown Command." << std::endl;
 	}
 	std::cout << "Exit" << std::endl;
 	return (0);

@@ -5,46 +5,57 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/11/09 08:50:55 by mkamei            #+#    #+#              #
-#    Updated: 2021/11/12 12:36:41 by mkamei           ###   ########.fr        #
+#    Created: 2021/11/08 13:49:13 by mkamei            #+#    #+#              #
+#    Updated: 2022/03/29 19:02:13 by mkamei           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCSNAME=	Account.cpp tests.cpp
+SRCSNAME=	tests.cpp Account.cpp
 SRCSDIR	=	.
 SRCS	=	$(addprefix $(SRCDIR)/, $(SRCNAME))
 
-OBJSNAME=	$(SRCSNAME:.cpp=.o)
 OBJSDIR	=	./objs
-OBJS	=	$(addprefix $(OBJSDIR)/, $(OBJSNAME))
+OBJS	=	$(addprefix $(OBJSDIR)/, $(SRCSNAME:.cpp=.o))
+DEPS    :=  $(addprefix $(OBJSDIR)/, $(SRCSNAME:.cpp=.d))
 
-CC		=	clang++
-CFLAGS	=	-Wall -Wextra -Werror
+INCLUDE =	-I./
 NAME	=	account
-INCLUDE =   -I./
+
+CC		=	c++
+CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS	+=	-MMD -MP
+CFLAGS	+=	-std=c++98
+RM		=	rm -rf
 
 all			:	$(NAME)
 
 $(NAME)		:	$(OBJS)
 				$(CC) $(CFLAGS) $(INCLUDE) -o $@ $(OBJS)
 
-$(OBJSDIR)/%.o	:	$(SRCSDIR)/%.cpp
+$(OBJSDIR)/%.o	:	%.cpp
 			@mkdir -p $(dir $@)
 			$(CC) $(CFLAGS) $(INCLUDE) -o $@ -c $<
 
-clean		:
-				-rm -f $(OBJS)
+-include $(DEPS)
 
-fclean		:
-				-rm -f $(NAME) $(OBJS)
+clean		:
+				-$(RM) $(OBJS) $(DEPS)
+
+fclean		:	clean
+				-$(RM) $(NAME)
 
 re			:	fclean all
+
+debug		:	CFLAGS	+=	-g
+debug		:	re
 
 address		:	CFLAGS	+=	-g -fsanitize=address
 address		:	re
 
-leak		:	CC		=	/usr/local/opt/llvm/bin/clang++
-leak		:	CFLAGS	=	-g -fsanitize=leak
+ifeq ($(shell uname),Darwin)
+leak	:	CC		=	/usr/local/opt/llvm/bin/clang++
+endif
+leak		:	CFLAGS	+=	-g -fsanitize=leak
 leak		:	re
 
-.PHONY		:	all clean fclean re address leak
+.PHONY		:	all clean fclean re debug address leak

@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 11:39:52 by mkamei            #+#    #+#             */
-/*   Updated: 2021/11/11 15:28:10 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/03/25 18:12:12 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 	{
 		for (int j = 0; argv[i][j]; j++)
 		{
-			std::cout << std::toupper<char>(argv[i][j], l);
+			std::cout << std::toupper(argv[i][j], l);
 		}
 	}
 	std::cout << std::endl;
