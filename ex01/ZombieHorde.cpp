@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 17:11:15 by mkamei            #+#    #+#             */
-/*   Updated: 2021/11/13 13:19:52 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/01 11:26:28 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 Zombie	*zombieHorde(int N, std::string name)
 {
-	Zombie *taros = new Zombie[N];
+	Zombie *z = new Zombie[N];
 	for (int i = 0; i < N; i++)
 	{
-		new (taros + i) Zombie(name);
+		z[i].setName(name);
 	}
-	return (taros);
+	return (z);
 }

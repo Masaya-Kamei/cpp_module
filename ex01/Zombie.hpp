@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 14:08:11 by mkamei            #+#    #+#             */
-/*   Updated: 2021/11/13 10:17:30 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/01 12:43:12 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@ class Zombie
 {
 public:
 
-	Zombie(void);
-	Zombie(std::string name);
-	~Zombie(void);
+	Zombie();
+	Zombie(const std::string &name);
+	~Zombie();
 
-	void	announce(void) const;
+	void	setName(const std::string &name);
+	void	announce() const;
 
 private:
 
