@@ -6,27 +6,27 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 14:56:57 by mkamei            #+#    #+#             */
-/*   Updated: 2021/11/13 15:15:50 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/01 12:41:41 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
-Weapon::Weapon(std::string type) :
+Weapon::Weapon(const std::string &type) :
 	type_(type)
 {
 }
 
-Weapon::~Weapon(void)
+Weapon::~Weapon()
 {
 }
 
-const std::string&	Weapon::getType(void) const
+const std::string&	Weapon::getType() const
 {
 	return (type_);
 }
 
-void	Weapon::setType(const std::string type)
+void	Weapon::setType(const std::string &type)
 {
 	type_ = type;
 }
