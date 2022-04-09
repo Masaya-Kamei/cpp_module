@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 17:10:07 by mkamei            #+#    #+#             */
-/*   Updated: 2022/03/30 10:54:36 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/09 18:10:26 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ static void	StrTrim(std::string& str, const char c)
 		str = str.substr(start, (end - start + 1));
 }
 
-t_status	ReadLine(const std::string &prompt, std::string &line, const int prompt_width)
+t_status	ReadLine(
+	const std::string& prompt, std::string& line, const int prompt_width)
 {
 	line.clear();
 	while (line.empty())
