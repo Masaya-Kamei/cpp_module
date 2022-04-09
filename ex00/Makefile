@@ -6,7 +6,7 @@
 #    By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/08 13:49:13 by mkamei            #+#    #+#              #
-#    Updated: 2022/03/29 12:23:38 by mkamei           ###   ########.fr        #
+#    Updated: 2022/04/09 12:17:53 by mkamei           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ address		:	CFLAGS	+=	-g -fsanitize=address
 address		:	re
 
 ifeq ($(shell uname),Darwin)
-	leak	:	CC		=	/usr/local/opt/llvm/bin/clang++
+leak		:	CC		=	/usr/local/opt/llvm/bin/clang++
 endif
 leak		:	CFLAGS	+=	-g -fsanitize=leak
 leak		:	re
