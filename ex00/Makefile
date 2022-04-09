@@ -6,17 +6,15 @@
 #    By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/08 13:49:13 by mkamei            #+#    #+#              #
-#    Updated: 2022/04/01 10:21:04 by mkamei           ###   ########.fr        #
+#    Updated: 2022/04/09 09:41:22 by mkamei           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCSNAME=	main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
-SRCSDIR	=	.
-SRCS	=	$(addprefix $(SRCDIR)/, $(SRCNAME))
+SRCS	=	main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
 
 OBJSDIR	=	./objs
-OBJS	=	$(addprefix $(OBJSDIR)/, $(SRCSNAME:.cpp=.o))
-DEPS    :=  $(addprefix $(OBJSDIR)/, $(SRCSNAME:.cpp=.d))
+OBJS	=	$(addprefix $(OBJSDIR)/, $(SRCS:.cpp=.o))
+DEPS    :=  $(addprefix $(OBJSDIR)/, $(SRCS:.cpp=.d))
 
 INCLUDE =	-I./
 NAME	=	zombie
