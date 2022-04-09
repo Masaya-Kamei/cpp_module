@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 16:28:46 by mkamei            #+#    #+#             */
-/*   Updated: 2021/11/12 17:03:52 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/01 10:25:31 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	randomChump(std::string name)
 {
-	Zombie *z = new Zombie(name);
-	z->announce();
-	delete z;
+	Zombie z(name);
+	z.announce();
 }
