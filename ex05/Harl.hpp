@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Karen.hpp                                          :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 13:22:27 by mkamei            #+#    #+#             */
-/*   Updated: 2021/12/21 15:39:16 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/09 14:10:22 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KAREN_HPP
-# define KAREN_HPP
+#ifndef HARL_HPP
+# define HARL_HPP
 
 # include <string>
 
-class Karen
+class Harl
 {
 public:
 
-	Karen();
-	~Karen();
+	Harl();
+	~Harl();
 
 	static void	complain(std::string level);
 
@@ -30,7 +30,6 @@ private:
 	static void	info(void);
 	static void	warning(void);
 	static void	error(void);
-
 };
 
 #endif

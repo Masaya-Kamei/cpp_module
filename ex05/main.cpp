@@ -6,19 +6,19 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 16:05:19 by mkamei            #+#    #+#             */
-/*   Updated: 2021/11/14 17:06:36 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/09 12:14:34 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Karen.hpp"
+#include "Harl.hpp"
 
 int	main(void)
 {
-	Karen	k;
+	Harl	h;
 
-	k.complain("DEBUG");
-	k.complain("INFO");
-	k.complain("WARNING");
-	k.complain("ERROR");
+	h.complain("DEBUG");
+	h.complain("INFO");
+	h.complain("WARNING");
+	h.complain("ERROR");
 	return (0);
 }
