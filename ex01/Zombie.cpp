@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 14:08:05 by mkamei            #+#    #+#             */
-/*   Updated: 2022/04/01 12:43:02 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/09 18:14:53 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Zombie::Zombie():
 {
 }
 
-Zombie::Zombie(const std::string &name) :
+Zombie::Zombie(const std::string& name) :
 	name_(name)
 {
 }
@@ -28,7 +28,7 @@ Zombie::~Zombie()
 	std::cout << name_ << " died." << std::endl;
 }
 
-void	Zombie::setName(const std::string &name)
+void	Zombie::setName(const std::string& name)
 {
 	name_ = name;
 }

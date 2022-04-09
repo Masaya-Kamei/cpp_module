@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 14:49:03 by mkamei            #+#    #+#             */
-/*   Updated: 2022/04/01 12:41:52 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/09 18:16:28 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ class Weapon
 {
 public:
 
-	Weapon(const std::string &type);
+	Weapon(const std::string& type);
 	~Weapon();
 
 	const std::string&	getType() const;
-	void				setType(const std::string &type);
+	void				setType(const std::string& type);
 
 private:
 

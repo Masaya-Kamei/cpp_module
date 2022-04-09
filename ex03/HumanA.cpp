@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 15:10:08 by mkamei            #+#    #+#             */
-/*   Updated: 2022/04/09 09:56:45 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/09 18:15:37 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <string>
 #include <iostream>
 
-HumanA::HumanA(const std::string &name, Weapon& weapon) :
+HumanA::HumanA(const std::string& name, Weapon& weapon) :
 	name_(name), weapon_(weapon)
 {
 }
