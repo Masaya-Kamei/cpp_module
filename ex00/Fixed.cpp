@@ -6,14 +6,12 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 14:05:33 by mkamei            #+#    #+#             */
-/*   Updated: 2021/11/15 16:01:52 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/10 10:54:31 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <iostream>
-
-const int	Fixed::fractional_bits_num_ = 8;
 
 Fixed::Fixed() :
 	fixed_point_value_(0)
@@ -34,7 +32,7 @@ Fixed::Fixed(const Fixed& rhs)
 
 Fixed& Fixed::operator=(const Fixed &rhs)
 {
-	std::cout << "Assignation operator called" << std::endl;
+	std::cout << "Copy assignment operator called" << std::endl;
 	this->fixed_point_value_ = rhs.getRawBits();
 	return (*this);
 }

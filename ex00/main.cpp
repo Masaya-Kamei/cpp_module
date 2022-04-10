@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 13:42:13 by mkamei            #+#    #+#             */
-/*   Updated: 2021/11/15 13:42:54 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/09 17:42:06 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(void)
 	Fixed a;
 	Fixed b(a);
 	Fixed c;
+
 	c = b;
 
 	std::cout << a.getRawBits() << std::endl;
