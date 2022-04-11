@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 11:25:43 by mkamei            #+#    #+#             */
-/*   Updated: 2021/11/19 20:02:27 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/11 15:02:51 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 static Fixed	CrossProduct(Point const p, Point const q)
 {
-	return (p.get_x() * q.get_y() - p.get_y() * q.get_x());
+	return (p.getX() * q.getY() - p.getY() * q.getX());
 }
 
 bool	bsp(Point const a, Point const b, Point const c, Point const point)
 {
-	bool	b1, b2, b3;
+	Fixed	f0, f1, f2;
 
-	b1 = CrossProduct(point - a, b - a) < 0;
-	b2 = CrossProduct(point - b, c - b) < 0;
-	b3 = CrossProduct(point - c, a - c) < 0;
+	f0 = CrossProduct(a - point, a - b);
+	f1 = CrossProduct(b - point, b - c);
+	f2 = CrossProduct(c - point, c - a);
 
-	return (b1 == b2 && b2 == b3);
+	return ((f0 > 0 && f1 > 0 && f2 > 0) || (f0 < 0 && f1 < 0 && f2 < 0));
 }

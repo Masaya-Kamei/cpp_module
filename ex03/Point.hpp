@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 11:16:33 by mkamei            #+#    #+#             */
-/*   Updated: 2021/11/19 19:43:38 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/11 12:39:49 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@ class Point
 public:
 
 	Point();
-	Point(const Point& rhs);
-	Point(const float x, const float y);
 	~Point();
-
+	Point(const Point& rhs);
 	Point&	operator=(const Point& p);
+
+	Point(const float x, const float y);
 	Point	operator-(const Point& p) const;
 
-	Fixed	get_x(void) const;
-	Fixed	get_y(void) const;
+	Fixed	getX() const;
+	Fixed	getY() const;
 
 private:
 
@@ -36,7 +36,7 @@ private:
 	Fixed const	y_;
 };
 
-std::ostream &operator<<(std::ostream &out, const Point &rhs);
+std::ostream&	operator<<(std::ostream& out, const Point& rhs);
 
 bool	bsp(Point const a, Point const b, Point const c, Point const point);
 
