@@ -6,13 +6,14 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 17:02:42 by mkamei            #+#    #+#             */
-/*   Updated: 2022/04/09 11:37:12 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/12 15:14:34 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <sstream>
 
 static int	PutErrMsg(const char* const errmsg, const int exit_status)
 {
@@ -24,24 +25,20 @@ static int	ReplaceString(
 	std::istream& ifs, std::ostream& ofs,
 	const std::string& s1, const std::string& s2)
 {
-	std::string				line;
+	std::ostringstream		oss;
+	std::string				str;
 	std::string::size_type	pos;
 
-	while (std::getline(ifs, line))
+	oss << ifs.rdbuf();
+	str = oss.str();
+	pos = str.find(s1);
+	while (pos != std::string::npos)
 	{
-		if (!ifs.eof())
-			line.push_back('\n');
-		pos = line.find(s1);
-		while (pos != std::string::npos)
-		{
-			line.erase(pos, s1.length());
-			line.insert(pos, s2);
-			pos = line.find(s1, pos + s2.length());
-		}
-		ofs << line << std::flush;
+		str.erase(pos, s1.length());
+		str.insert(pos, s2);
+		pos = str.find(s1, pos + s2.length());
 	}
-	if (!ifs.eof())
-		return (PutErrMsg("Read Error.", 1));
+	ofs << str << std::flush;
 	return (0);
 }
 

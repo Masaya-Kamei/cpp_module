@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 15:16:45 by mkamei            #+#    #+#             */
-/*   Updated: 2022/04/09 18:15:56 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/12 12:49:42 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ HumanB::~HumanB()
 
 void	HumanB::attack() const
 {
+	if (weapon_ == NULL)
+		return ;
 	std::cout << name_ << " attacks with their " << weapon_->getType() << std::endl;
 }
 
