@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 17:02:42 by mkamei            #+#    #+#             */
-/*   Updated: 2022/04/12 15:14:34 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/12 15:46:34 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	PutErrMsg(const char* const errmsg, const int exit_status)
 }
 
 static int	ReplaceString(
-	std::istream& ifs, std::ostream& ofs,
+	std::ifstream& ifs, std::ofstream& ofs,
 	const std::string& s1, const std::string& s2)
 {
 	std::ostringstream		oss;
