@@ -6,34 +6,47 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 14:28:57 by mkamei            #+#    #+#             */
-/*   Updated: 2021/11/21 10:56:47 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/14 14:57:31 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "FragTrap.hpp"
+#include <iostream>
 
 int	main(void)
 {
-	ClapTrap	clap_taro("clap_taro");
-	ClapTrap	clap_hana("clap_hana");
-	FragTrap	frag_taro("frag_taro");
-	FragTrap	frag_hana("frag_hana");
+	ClapTrap	clap_a("clap_a");
+	ClapTrap	clap_b("clap_b");
+	FragTrap	frag_a("frag_a");
+	FragTrap	frag_b("frag_b");
 
-	frag_taro.attack("frag_hana");
-	frag_hana.takeDamage(30);
-	frag_hana.beRepaired(10);
+	std::cout << std::endl;
 
-	frag_hana.attack("clap_taro");
-	clap_taro.takeDamage(30);
-	clap_taro.beRepaired(10);
+	frag_a.attack("frag_b");
+	frag_b.takeDamage(30);
+	frag_b.beRepaired(20);
 
-	clap_hana.attack("frag_taro");
-	frag_taro.takeDamage(10);
-	frag_taro.beRepaired(5);
+	std::cout << std::endl;
 
-	frag_taro.highFivesGuys();
-	// clap_taro.highFivesGuys();
+	FragTrap	frag_b_copy(frag_b);
+	FragTrap	frag_b_assign("");
+	frag_b_assign = frag_b;
+	frag_b_copy.beRepaired(1);
+	frag_b_assign.beRepaired(1);
+
+	std::cout << std::endl;
+
+	clap_a.attack("frag_a");
+	frag_a.takeDamage(10);
+	frag_a.beRepaired(5);
+
+	std::cout << std::endl;
+
+	frag_a.highFivesGuys();
+	// clap_a.highFivesGuys();
+
+	std::cout << std::endl;
 
 	return (0);
 }

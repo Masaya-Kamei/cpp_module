@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 09:53:45 by mkamei            #+#    #+#             */
-/*   Updated: 2021/11/21 10:23:06 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/14 14:54:30 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,12 @@ class FragTrap : public ClapTrap
 {
 public:
 
-	FragTrap(std::string name);
-	FragTrap(FragTrap& rhs);
-	FragTrap&	operator=(FragTrap& rhs);
+	FragTrap(const std::string& name);
+	FragTrap(const FragTrap& rhs);
+	FragTrap&	operator=(const FragTrap& rhs);
 	~FragTrap();
 
 	void	highFivesGuys(void) const;
-
-protected:
 
 private:
 
