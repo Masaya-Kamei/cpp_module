@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 13:41:12 by mkamei            #+#    #+#             */
-/*   Updated: 2022/04/14 13:09:23 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/14 14:36:46 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	if (hit_points_ <= 0)
 	{
 		hit_points_ = 0;
-		std::cout << name_ << " is dyning!" << std::endl;
+		std::cout << name_ << " is dying!" << std::endl;
 	}
 	else
 		std::cout << name_ << "'s HP is " << hit_points_ << "." << std::endl;
