@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 14:28:57 by mkamei            #+#    #+#             */
-/*   Updated: 2021/11/20 14:46:04 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/14 13:08:02 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,20 @@
 
 int	main(void)
 {
-	ClapTrap	taro("taro");
-	ClapTrap	hanako("hanako");
+	ClapTrap	a("a");
+	ClapTrap	b("b");
 
-	taro.attack("hanako");
-	hanako.takeDamage(3);
-	hanako.beRepaired(2);
+	a.attack("b");
+	b.takeDamage(3);
+	b.beRepaired(2);
 
-	hanako.attack("taro");
-	taro.takeDamage(10);
-	taro.beRepaired(15);
+	a.attack("b");
+	b.takeDamage(15);
+	b.beRepaired(10);
+
+	for (int i = 0; i < 8; i++)
+		a.beRepaired(1);
+	a.attack("b");
 
 	return (0);
 }
