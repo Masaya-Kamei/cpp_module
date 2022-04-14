@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 15:41:43 by mkamei            #+#    #+#             */
-/*   Updated: 2021/11/20 18:01:25 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/14 13:53:53 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,14 @@ class ScavTrap : public ClapTrap
 {
 public:
 
-	ScavTrap(const std::string name);
-	ScavTrap(const ScavTrap &rhs);
-	ScavTrap&	operator=(const ScavTrap &rhs);
+	ScavTrap(const std::string& name);
+	ScavTrap(const ScavTrap& rhs);
+	ScavTrap&	operator=(const ScavTrap& rhs);
 	~ScavTrap();
 
-	void	guardGate(void) const;
+	void	attack(const std::string& target);
+
+	void	guardGate() const;
 
 private:
 
