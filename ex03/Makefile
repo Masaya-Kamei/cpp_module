@@ -6,7 +6,7 @@
 #    By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/14 13:28:25 by mkamei            #+#    #+#              #
-#    Updated: 2022/04/20 11:46:07 by mkamei           ###   ########.fr        #
+#    Updated: 2022/04/20 13:17:02 by mkamei           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ INCLUDE =	-I./
 NAME	=	diamondtrap
 
 CC		=	c++
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror -Wshadow
 CFLAGS	+=	-MMD -MP
 CFLAGS	+=	-std=c++98
 RM		=	rm -rf
