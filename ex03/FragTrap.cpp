@@ -6,14 +6,14 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 09:53:03 by mkamei            #+#    #+#             */
-/*   Updated: 2021/11/21 15:45:14 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/14 15:17:07 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 #include <iostream>
 
-FragTrap::FragTrap(std::string name) :
+FragTrap::FragTrap(const std::string& name) :
 	ClapTrap(name)
 {
 	hit_points_ = kHitPointsDefault_;
@@ -23,15 +23,17 @@ FragTrap::FragTrap(std::string name) :
 	std::cout << "FragTrap " << name_ << " constructor called." << std::endl;
 }
 
-FragTrap::FragTrap(FragTrap& rhs) :
-	ClapTrap(rhs.name_)
+FragTrap::FragTrap(const FragTrap& rhs) :
+	ClapTrap(rhs)
 {
-	*this = rhs;
+	std::cout << "FragTrap " << name_ << " copy constructor called." << std::endl;
 }
 
-FragTrap&	FragTrap::operator=(FragTrap& rhs)
+FragTrap&	FragTrap::operator=(const FragTrap& rhs)
 {
 	this->ClapTrap::operator=(rhs);
+	std::cout << "FragTrap " << name_
+		<< " copy assignment operator called." << std::endl;
 	return (*this);
 }
 

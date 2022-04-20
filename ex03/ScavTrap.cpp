@@ -6,14 +6,14 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 15:40:44 by mkamei            #+#    #+#             */
-/*   Updated: 2021/11/21 15:47:39 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/14 15:19:13 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 #include <iostream>
 
-ScavTrap::ScavTrap(const std::string name) :
+ScavTrap::ScavTrap(const std::string& name) :
 	ClapTrap(name)
 {
 	hit_points_ = kHitPointsDefault_;
@@ -23,15 +23,17 @@ ScavTrap::ScavTrap(const std::string name) :
 	std::cout << "ScavTrap " << name_ << " constructor called." << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &rhs) :
-	ClapTrap(rhs.name_)
+ScavTrap::ScavTrap(const ScavTrap& rhs) :
+	ClapTrap(rhs)
 {
-	*this = rhs;
+	std::cout << "ScavTrap " << name_ << " copy constructor called." << std::endl;
 }
 
-ScavTrap&	ScavTrap::operator=(const ScavTrap &rhs)
+ScavTrap&	ScavTrap::operator=(const ScavTrap& rhs)
 {
 	this->ClapTrap::operator=(rhs);
+	std::cout << "ScavTrap " << name_
+		<< " copy assignment operator called." << std::endl;
 	return (*this);
 }
 
@@ -40,7 +42,16 @@ ScavTrap::~ScavTrap()
 	std::cout << "ScavTrap " << name_ << " destructor called." << std::endl;
 }
 
-void	ScavTrap::guardGate(void) const
+void	ScavTrap::attack(const std::string& target)
+{
+	if (hit_points_ <= 0 || energy_points_ <= 0)
+		return ;
+	energy_points_ -= 1;
+	std::cout << "ScavTrap " << name_ << " attack " << target
+		<< ", causing " << attack_damage_ << " points of damage!" << std::endl;
+}
+
+void	ScavTrap::guardGate() const
 {
 	std::cout << "ScavTrap " << name_
 		<< " switches to Gate keeper mode." << std::endl;
