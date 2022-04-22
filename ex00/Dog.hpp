@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 10:18:13 by mkamei            #+#    #+#             */
-/*   Updated: 2021/12/05 12:05:02 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/22 12:50:12 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define DOG_HPP
 
 # include "Animal.hpp"
-# include <string>
 
 class Dog : public Animal
 {
@@ -25,7 +24,7 @@ public:
 	Dog&	operator=(const Dog& rhs);
 	~Dog();
 
-	void	makeSound(void) const;
+	void	makeSound() const;
 };
 
 #endif

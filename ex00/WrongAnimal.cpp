@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 10:54:32 by mkamei            #+#    #+#             */
-/*   Updated: 2021/12/05 11:43:26 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/22 14:14:21 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,21 @@
 #include <iostream>
 
 WrongAnimal::WrongAnimal() :
-	type()
+	type_()
 {
-	std::cout << "WrongAnimal constructor called." << std::endl;
+	std::cout << "WrongAnimal default constructor called." << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &rhs)
+WrongAnimal::WrongAnimal(const WrongAnimal &rhs):
+	type_(rhs.type_)
 {
-	*this = rhs;
+	std::cout << "WrongAnimal copy constructor called." << std::endl;
 }
 
 WrongAnimal&	WrongAnimal::operator=(const WrongAnimal &rhs)
 {
-	this->type = rhs.type;
+	type_ = rhs.type_;
+	std::cout << "WrongAnimal copy assignment operator called." << std::endl;
 	return (*this);
 }
 
@@ -35,9 +37,15 @@ WrongAnimal::~WrongAnimal()
 	std::cout << "WrongAnimal destructor called." << std::endl;
 }
 
-std::string	WrongAnimal::getType() const
+WrongAnimal::WrongAnimal(const std::string& type) :
+	type_(type)
 {
-	return (this->type);
+	std::cout << "WrongAnimal constructor with args called." << std::endl;
+}
+
+const std::string&	WrongAnimal::getType() const
+{
+	return (type_);
 }
 
 void	WrongAnimal::makeSound() const

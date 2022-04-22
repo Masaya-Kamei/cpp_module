@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 10:54:39 by mkamei            #+#    #+#             */
-/*   Updated: 2021/12/05 14:52:26 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/22 13:05:17 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,11 @@ public:
 	WrongAnimal();
 	WrongAnimal(const WrongAnimal& rhs);
 	WrongAnimal&	operator=(const WrongAnimal& rhs);
-	~WrongAnimal();
+	virtual ~WrongAnimal();
+	WrongAnimal(const std::string& type);
 
-	std::string	getType(void) const;
-	void	makeSound(void) const;
+	const std::string&	getType() const;
+	void				makeSound() const;
 
 protected:
 
