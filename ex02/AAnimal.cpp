@@ -1,41 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 16:59:43 by mkamei            #+#    #+#             */
-/*   Updated: 2021/12/06 10:00:31 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/23 13:22:21 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include <iostream>
 
-Animal::Animal() :
+AAnimal::AAnimal() :
 	type_()
 {
-	std::cout << "Animal constructor called." << std::endl;
+	std::cout << "AAnimal default constructor called." << std::endl;
 }
 
-Animal::Animal(const Animal& rhs)
+AAnimal::AAnimal(const AAnimal& rhs) :
+	type_(rhs.type_)
 {
-	*this = rhs;
+	std::cout << "AAnimal copy constructor called." << std::endl;
 }
 
-Animal&	Animal::operator=(const Animal& rhs)
+AAnimal&	AAnimal::operator=(const AAnimal& rhs)
 {
-	this->type_ = rhs.type_;
+	type_ = rhs.type_;
+	std::cout << "AAnimal copy assignment operator called." << std::endl;
 	return (*this);
 }
 
-Animal::~Animal()
+AAnimal::~AAnimal()
 {
-	std::cout << "Animal destructor called." << std::endl;
+	std::cout << "AAnimal destructor called." << std::endl;
 }
 
-std::string	Animal::getType(void) const
+AAnimal::AAnimal(const std::string& type) :
+	type_(type)
 {
-	return (this->type_);
+	std::cout << "AAnimal constructor with args called." << std::endl;
+}
+
+const std::string&	AAnimal::getType() const
+{
+	return (type_);
 }

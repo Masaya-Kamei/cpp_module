@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 09:48:02 by mkamei            #+#    #+#             */
-/*   Updated: 2021/12/06 09:38:06 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/23 13:25:53 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,22 @@
 #include <iostream>
 
 Cat::Cat() :
-	Animal(), brain_(new Brain())
+	AAnimal("Cat"), brain_(new Brain())
 {
-	std::cout << "Cat constructor called." << std::endl;
-	type_ = "Cat";
+	std::cout << "Cat default constructor called." << std::endl;
 }
 
 Cat::Cat(const Cat& rhs) :
-	Animal(rhs), brain_(new Brain(*(rhs.brain_)))
+	AAnimal(rhs), brain_(new Brain(*(rhs.brain_)))
 {
+	std::cout << "Cat copy constructor called." << std::endl;
 }
 
 Cat&	Cat::operator=(const Cat& rhs)
 {
-	type_ = rhs.type_;
+	AAnimal::operator=(rhs);
 	*(brain_) = *(rhs.brain_);
-	return (*this);
-}
-
-Animal&	Cat::operator=(const Animal& rhs)
-{
-	type_ = rhs.getType();
-	*(brain_) = *(rhs.getBrain());
+	std::cout << "Cat copy assignment operator called." << std::endl;
 	return (*this);
 }
 
@@ -45,17 +39,12 @@ Cat::~Cat()
 	delete brain_;
 }
 
-Brain*	Cat::getBrain(void) const
-{
-	return (this->brain_);
-}
-
-void	Cat::makeSound(void) const
+void	Cat::makeSound() const
 {
 	std::cout << "meow!" << std::endl;
 }
 
-void	Cat::memorizeIdea(const int index, std::string idea)
+void	Cat::memorizeIdea(const int index, const std::string& idea)
 {
 	brain_->setIdea(index, idea);
 }

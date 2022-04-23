@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 09:48:02 by mkamei            #+#    #+#             */
-/*   Updated: 2022/04/23 10:53:28 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/23 13:26:04 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ Cat&	Cat::operator=(const Cat& rhs)
 
 Cat::~Cat()
 {
-	delete brain_;
 	std::cout << "Cat destructor called." << std::endl;
+	delete brain_;
 }
 
 void	Cat::makeSound() const

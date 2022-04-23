@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 16:54:51 by mkamei            #+#    #+#             */
-/*   Updated: 2021/12/06 08:51:16 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/23 13:26:44 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,22 @@
 #include <iostream>
 
 Dog::Dog() :
-	Animal(), brain_(new Brain())
+	AAnimal("Dog"), brain_(new Brain())
 {
-	std::cout << "Dog constructor called." << std::endl;
-	type_ = "Dog";
+	std::cout << "Dog default constructor called." << std::endl;
 }
 
-Dog::Dog(const Dog& rhs)
+Dog::Dog(const Dog& rhs) :
+	AAnimal(rhs), brain_(new Brain(*(rhs.brain_)))
 {
-	*this = rhs;
+	std::cout << "Dog copy constructor called." << std::endl;
 }
 
 Dog&	Dog::operator=(const Dog& rhs)
 {
-	type_ = rhs.type_;
+	AAnimal::operator=(rhs);
 	*(brain_) = *(rhs.brain_);
-	return (*this);
-}
-
-Animal&	Dog::operator=(const Animal& rhs)
-{
-	type_ = rhs.getType();
-	*(brain_) = *(rhs.getBrain());
+	std::cout << "Dog copy assignment operator called." << std::endl;
 	return (*this);
 }
 
@@ -45,17 +39,12 @@ Dog::~Dog()
 	delete brain_;
 }
 
-Brain*	Dog::getBrain(void) const
-{
-	return (this->brain_);
-}
-
-void	Dog::makeSound(void) const
+void	Dog::makeSound() const
 {
 	std::cout << "Bow wow!" << std::endl;
 }
 
-void	Dog::memorizeIdea(const int index, std::string idea)
+void	Dog::memorizeIdea(const int index, const std::string& idea)
 {
 	brain_->setIdea(index, idea);
 }

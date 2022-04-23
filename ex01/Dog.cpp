@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 16:54:51 by mkamei            #+#    #+#             */
-/*   Updated: 2022/04/23 11:21:08 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/23 13:26:33 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ Dog&	Dog::operator=(const Dog& rhs)
 
 Dog::~Dog()
 {
-	delete brain_;
 	std::cout << "Dog destructor called." << std::endl;
+	delete brain_;
 }
 
 void	Dog::makeSound() const
