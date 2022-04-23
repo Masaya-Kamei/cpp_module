@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 16:55:02 by mkamei            #+#    #+#             */
-/*   Updated: 2022/04/22 12:44:46 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/23 09:11:14 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ public:
 	virtual ~Animal();
 	Animal(const std::string& type);
 
-	const std::string&	getType(void) const;
-	virtual void		makeSound(void) const;
+	const std::string&	getType() const;
+	virtual void		makeSound() const;
 
 protected:
 
