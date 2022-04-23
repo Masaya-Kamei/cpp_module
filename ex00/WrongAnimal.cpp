@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 10:54:32 by mkamei            #+#    #+#             */
-/*   Updated: 2022/04/22 14:14:21 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/23 12:24:12 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,5 @@ const std::string&	WrongAnimal::getType() const
 
 void	WrongAnimal::makeSound() const
 {
-	std::cout << "Grrrrrr!" << std::endl;
+	std::cout << "......" << std::endl;
 }
