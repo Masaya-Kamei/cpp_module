@@ -5,46 +5,55 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/12/05 16:10:55 by mkamei            #+#    #+#              #
-#    Updated: 2021/12/05 16:11:04 by mkamei           ###   ########.fr        #
+#    Created: 2022/04/14 13:28:25 by mkamei            #+#    #+#              #
+#    Updated: 2022/04/23 09:14:03 by mkamei           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCSNAME=	main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
-SRCSDIR	=	.
-SRCS	=	$(addprefix $(SRCDIR)/, $(SRCNAME))
+SRCS	=	main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
 
-OBJSNAME=	$(SRCSNAME:.cpp=.o)
 OBJSDIR	=	./objs
-OBJS	=	$(addprefix $(OBJSDIR)/, $(OBJSNAME))
+OBJS	=	$(addprefix $(OBJSDIR)/, $(SRCS:.cpp=.o))
+DEPS    :=  $(addprefix $(OBJSDIR)/, $(SRCS:.cpp=.d))
 
-CC		=	clang++
+INCLUDE =	-I./
+NAME	=	brain
+
+CC		=	c++
 CFLAGS	=	-Wall -Wextra -Werror
-NAME	=	a.out
-INCLUDE =   -I./
+CFLAGS	+=	-MMD -MP
+CFLAGS	+=	-std=c++98
+RM		=	rm -rf
 
 all			:	$(NAME)
 
 $(NAME)		:	$(OBJS)
 				$(CC) $(CFLAGS) $(INCLUDE) -o $@ $(OBJS)
 
-$(OBJSDIR)/%.o	:	$(SRCSDIR)/%.cpp
+$(OBJSDIR)/%.o	:	%.cpp
 			@mkdir -p $(dir $@)
 			$(CC) $(CFLAGS) $(INCLUDE) -o $@ -c $<
 
-clean		:
-				-rm -f $(OBJS)
+-include $(DEPS)
 
-fclean		:
-				-rm -f $(NAME) $(OBJS)
+clean		:
+				-$(RM) $(OBJS) $(DEPS)
+
+fclean		:	clean
+				-$(RM) $(NAME)
 
 re			:	fclean all
+
+debug		:	CFLAGS	+=	-g
+debug		:	re
 
 address		:	CFLAGS	+=	-g -fsanitize=address
 address		:	re
 
-leak		:	CC		=	/usr/local/opt/llvm/bin/clang++
-leak		:	CFLAGS	=	-g -fsanitize=leak
+ifeq ($(shell uname),Darwin)
+leak	:	CC		=	/usr/local/opt/llvm/bin/clang++
+endif
+leak		:	CFLAGS	+=	-g -fsanitize=leak
 leak		:	re
 
-.PHONY		:	all clean fclean re address leak
+.PHONY		:	all clean fclean re debug address leak
