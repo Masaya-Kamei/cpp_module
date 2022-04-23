@@ -6,14 +6,14 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 11:59:28 by mkamei            #+#    #+#             */
-/*   Updated: 2022/04/23 10:21:13 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/23 13:43:33 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
 #include <iostream>
 
-Brain::Brain(void) :
+Brain::Brain() :
 	ideas_()
 {
 	std::cout << "Brain default constructor called." << std::endl;

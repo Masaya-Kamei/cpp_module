@@ -5,47 +5,55 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/12/06 11:43:50 by mkamei            #+#    #+#              #
-#    Updated: 2021/12/06 17:29:22 by mkamei           ###   ########.fr        #
+#    Created: 2022/04/14 13:28:25 by mkamei            #+#    #+#              #
+#    Updated: 2022/04/23 15:00:36 by mkamei           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCSNAME=	main.cpp AMateria.cpp Cure.cpp Ice.cpp Character.cpp \
-			MateriaSource.cpp
-SRCSDIR	=	.
-SRCS	=	$(addprefix $(SRCDIR)/, $(SRCNAME))
+SRCS	=	main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 
-OBJSNAME=	$(SRCSNAME:.cpp=.o)
 OBJSDIR	=	./objs
-OBJS	=	$(addprefix $(OBJSDIR)/, $(OBJSNAME))
+OBJS	=	$(addprefix $(OBJSDIR)/, $(SRCS:.cpp=.o))
+DEPS    :=  $(addprefix $(OBJSDIR)/, $(SRCS:.cpp=.d))
 
-CC		=	clang++
+INCLUDE =	-I./
+NAME	=	materia
+
+CC		=	c++
 CFLAGS	=	-Wall -Wextra -Werror
-NAME	=	a.out
-INCLUDE =   -I./
+CFLAGS	+=	-MMD -MP
+CFLAGS	+=	-std=c++98
+RM		=	rm -rf
 
 all			:	$(NAME)
 
 $(NAME)		:	$(OBJS)
 				$(CC) $(CFLAGS) $(INCLUDE) -o $@ $(OBJS)
 
-$(OBJSDIR)/%.o	:	$(SRCSDIR)/%.cpp
+$(OBJSDIR)/%.o	:	%.cpp
 			@mkdir -p $(dir $@)
 			$(CC) $(CFLAGS) $(INCLUDE) -o $@ -c $<
 
-clean		:
-				-rm -f $(OBJS)
+-include $(DEPS)
 
-fclean		:
-				-rm -f $(NAME) $(OBJS)
+clean		:
+				-$(RM) $(OBJS) $(DEPS)
+
+fclean		:	clean
+				-$(RM) $(NAME)
 
 re			:	fclean all
+
+debug		:	CFLAGS	+=	-g
+debug		:	re
 
 address		:	CFLAGS	+=	-g -fsanitize=address
 address		:	re
 
-leak		:	CC		=	/usr/local/opt/llvm/bin/clang++
-leak		:	CFLAGS	=	-g -fsanitize=leak
+ifeq ($(shell uname),Darwin)
+leak	:	CC		=	/usr/local/opt/llvm/bin/clang++
+endif
+leak		:	CFLAGS	+=	-g -fsanitize=leak
 leak		:	re
 
-.PHONY		:	all clean fclean re address leak
+.PHONY		:	all clean fclean re debug address leak

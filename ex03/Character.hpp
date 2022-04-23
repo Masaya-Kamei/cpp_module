@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 11:52:45 by mkamei            #+#    #+#             */
-/*   Updated: 2021/12/06 16:49:56 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/23 13:53:22 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class Character : public ICharacter
 {
 public:
 
+	Character();
 	Character(const std::string& name);
 	Character(const Character& rhs);
 	Character&	operator=(const Character& rhs);

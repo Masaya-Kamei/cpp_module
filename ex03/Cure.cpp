@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 11:42:01 by mkamei            #+#    #+#             */
-/*   Updated: 2021/12/06 15:36:53 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/23 13:46:30 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Cure::Cure(const Cure& rhs) :
 
 Cure& Cure::operator=(const Cure& rhs)
 {
-	this->type_ = rhs.type_;
+	AMateria::operator=(rhs);
 	return (*this);
 }
 
@@ -40,6 +40,5 @@ AMateria*	Cure::clone() const
 
 void	Cure::use(ICharacter& target)
 {
-	std::cout << "* heals "
-		<< target.getName() << "'s wounds *" << std::endl;
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }

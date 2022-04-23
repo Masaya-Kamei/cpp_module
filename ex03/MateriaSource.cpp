@@ -6,19 +6,21 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 13:41:11 by mkamei            #+#    #+#             */
-/*   Updated: 2021/12/06 15:40:38 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/23 15:10:32 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
 
-MateriaSource::MateriaSource()
+MateriaSource::MateriaSource() :
+	materias_()
 {
 	for (int i = 0; i < kMateriasMax_; i++)
 		materias_[i] = NULL;
 }
 
-MateriaSource::MateriaSource(const MateriaSource& rhs)
+MateriaSource::MateriaSource(const MateriaSource& rhs) :
+	materias_()
 {
 	for (int i = 0; i < kMateriasMax_; i++)
 	{
@@ -58,7 +60,7 @@ void	MateriaSource::learnMateria(AMateria* m)
 		if (materias_[i] == NULL)
 		{
 			materias_[i] = m;
-			break ;
+			return ;
 		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 10:33:44 by mkamei            #+#    #+#             */
-/*   Updated: 2021/12/06 15:33:59 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/23 13:43:53 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,19 @@
 #include "ICharacter.hpp"
 #include <iostream>
 
+AMateria::AMateria():
+	type_()
+{
+}
+
 AMateria::AMateria(std::string const &type):
 	type_(type)
 {
 }
 
-AMateria::AMateria(const AMateria& rhs)
+AMateria::AMateria(const AMateria& rhs) :
+	type_(rhs.type_)
 {
-	*this = rhs;
 }
 
 AMateria&	AMateria::operator=(const AMateria& rhs)
@@ -34,7 +39,7 @@ AMateria::~AMateria()
 {
 }
 
-std::string const& AMateria::getType(void) const
+std::string const& AMateria::getType() const
 {
 	return (type_);
 }
