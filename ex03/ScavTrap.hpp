@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 15:41:43 by mkamei            #+#    #+#             */
-/*   Updated: 2022/04/14 15:20:42 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/25 08:24:31 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class ScavTrap : public virtual ClapTrap
 {
 public:
 
+	ScavTrap();
 	ScavTrap(const std::string& name);
 	ScavTrap(const ScavTrap& rhs);
 	ScavTrap&	operator=(const ScavTrap& rhs);

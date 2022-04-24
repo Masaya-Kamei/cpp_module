@@ -6,18 +6,25 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 13:41:12 by mkamei            #+#    #+#             */
-/*   Updated: 2022/04/14 14:36:30 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/25 08:17:38 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include <iostream>
 
+ClapTrap::ClapTrap() :
+	name_(), hit_points_(10), max_hit_points_(hit_points_),
+	energy_points_(10), attack_damage_(0)
+{
+	std::cout << "CrapTrap " << name_ << " default constructor called." << std::endl;
+}
+
 ClapTrap::ClapTrap(const std::string& name) :
 	name_(name), hit_points_(10), max_hit_points_(hit_points_),
 	energy_points_(10), attack_damage_(0)
 {
-	std::cout << "CrapTrap " << name_ << " constructor called." << std::endl;
+	std::cout << "CrapTrap " << name_ << " constructor with args called." << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& rhs) :

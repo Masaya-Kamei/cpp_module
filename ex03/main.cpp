@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 14:28:57 by mkamei            #+#    #+#             */
-/*   Updated: 2022/04/20 11:27:02 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/25 08:28:44 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int	main(void)
 
 	diamond_a.whoAmI();
 	diamond_b.whoAmI();
+	diamond_a.guardGate();
+	diamond_a.highFivesGuys();
 
 	std::cout << std::endl;
 

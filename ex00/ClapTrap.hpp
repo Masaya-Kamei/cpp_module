@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:15:33 by mkamei            #+#    #+#             */
-/*   Updated: 2022/04/14 12:59:13 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/25 08:15:19 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class ClapTrap
 {
 public:
 
+	ClapTrap();
 	ClapTrap(const std::string& name);
 	ClapTrap(const ClapTrap& rhs);
 	ClapTrap&	operator=(const ClapTrap& rhs);
