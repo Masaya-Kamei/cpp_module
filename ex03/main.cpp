@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 10:26:39 by mkamei            #+#    #+#             */
-/*   Updated: 2022/04/23 15:44:44 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/04/24 10:14:53 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	main(void)
 	Character	assign_me("");
 	assign_me = static_cast<Character&>(*me);
 	me->unequip(1);
+	me->equip(src->createMateria("fire"));
 
 	std::cout << me->getName() << std::endl;
 	me->use(0, *bob);
