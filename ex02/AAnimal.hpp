@@ -19,20 +19,19 @@ class AAnimal
 {
 public:
 
-	AAnimal();
-	AAnimal(const AAnimal& rhs);
-	AAnimal&	operator=(const AAnimal& rhs);
 	virtual ~AAnimal();
-	AAnimal(const std::string& type);
 
 	const std::string&	getType() const;
 	virtual void		makeSound() const = 0;
-
 	virtual void		memorizeIdea(const int index, const std::string& idea) = 0;
 	virtual std::string	remindIdea(const int index) const = 0;
 
 protected:
 
+	AAnimal();
+	AAnimal(const std::string& type);
+	AAnimal(const AAnimal& rhs);
+	AAnimal&	operator=(const AAnimal& rhs);
 	std::string	type_;
 };
 
