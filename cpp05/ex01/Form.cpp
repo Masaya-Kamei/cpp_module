@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 14:25:50 by mkamei            #+#    #+#             */
-/*   Updated: 2022/05/20 14:58:54 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/05/20 15:52:07 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,16 @@ Form::~Form()
 {
 }
 
-std::string	Form::getName()    const { return (name_); }
-bool	Form::getSigned()      const { return (signed_); }
-int		Form::getGradeToSign() const { return (grade_to_sign_); }
-int		Form::getGradeToExec() const { return (grade_to_exec_); }
+std::string	Form::getName()        const { return (name_); }
+bool		Form::getSigned()      const { return (signed_); }
+int			Form::getGradeToSign() const { return (grade_to_sign_); }
+int			Form::getGradeToExec() const { return (grade_to_exec_); }
 
 void	Form::beSigned(const Bureaucrat& bureaucrat)
 {
-	if (bureaucrat.getGrade() <= grade_to_sign_)
-		signed_ = true;
-	else
+	if (bureaucrat.getGrade() > grade_to_sign_)
 		throw Form::GradeTooLowException();
+	signed_ = true;
 }
 
 std::ostream&	operator<<(std::ostream& out, const Form& rhs)
