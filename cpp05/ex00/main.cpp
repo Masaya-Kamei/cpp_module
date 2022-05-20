@@ -6,14 +6,14 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 09:36:21 by mkamei            #+#    #+#             */
-/*   Updated: 2022/05/20 14:01:47 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/05/20 15:01:17 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include <iostream>
 
-int	main(void)
+int	main()
 {
 	try
 	{

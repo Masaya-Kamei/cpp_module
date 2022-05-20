@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 12:40:27 by mkamei            #+#    #+#             */
-/*   Updated: 2022/05/20 14:45:17 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/05/20 15:03:23 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ private:
 	class GradeTooHighException : public std::range_error
 	{
 	public:
-		GradeTooHighException(): range_error("the grade is too high") {}
+		GradeTooHighException(): range_error("The grade is too high") {}
 	};
 
 	class GradeTooLowException : public std::range_error
 	{
 	public:
-		GradeTooLowException(): range_error("the grade is too low") {}
+		GradeTooLowException(): range_error("The grade is too low") {}
 	};
 
 	static const int	kGradeHighest_ = 1;

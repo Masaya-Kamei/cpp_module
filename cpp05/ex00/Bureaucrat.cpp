@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 09:55:44 by mkamei            #+#    #+#             */
-/*   Updated: 2022/05/20 14:09:05 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/05/20 15:01:45 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,8 @@ Bureaucrat::~Bureaucrat()
 {
 }
 
-std::string	Bureaucrat::getName() const
-{
-	return (name_);
-}
-
-int		Bureaucrat::getGrade() const
-{
-	return (grade_);
-}
+std::string	Bureaucrat::getName()  const { return (name_); }
+int			Bureaucrat::getGrade() const { return (grade_); }
 
 int		Bureaucrat::incGrade()
 {
