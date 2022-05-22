@@ -6,7 +6,7 @@
 #    By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/21 12:57:43 by mkamei            #+#    #+#              #
-#    Updated: 2022/05/21 18:32:07 by mkamei           ###   ########.fr        #
+#    Updated: 2022/05/22 16:47:25 by mkamei           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,7 @@ INCLUDE =	-I./
 NAME	=	convert
 
 CC		=	c++
-# CFLAGS	=	-Wall -Wextra -Werror
-CFLAGS	=
+CFLAGS	=	-Wall -Wextra -Werror
 CFLAGS	+=	-MMD -MP
 CFLAGS	+=	-std=c++98
 RM		=	rm -rf
