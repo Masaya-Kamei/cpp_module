@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 13:21:00 by mkamei            #+#    #+#             */
-/*   Updated: 2022/05/24 09:20:26 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/05/24 09:22:31 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,6 @@ int		main()
 	std::cout << "\nTest d" << std::endl;
 	Array<std::string> d(3);
 	TestArrayFunc<std::string>(d);
-
-	int *p = new int();
-	std::cout << *p << std::endl;
 
 	return (0);
 }
