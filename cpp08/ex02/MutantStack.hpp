@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 11:40:57 by mkamei            #+#    #+#             */
-/*   Updated: 2022/05/25 15:06:23 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/05/26 10:23:44 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,16 @@ template <class T, class Container = std::deque<T> >
 class	MutantStack : public std::stack<T, Container>
 {
 private:
-	typedef  MutantStack<T, Container>		mstack_type;
+	typedef  MutantStack<T, Container>	mstack_type;
+	typedef  std::stack<T, Container>	stack_type;
 
 public:
-	explicit MutantStack(const Container& cont = Container()) : mstack_type::stack(cont) {};
-	MutantStack(const mstack_type& rhs) : mstack_type::stack(rhs) {};
+	explicit MutantStack(const Container& cont = Container()) : stack_type(cont) {};
+	MutantStack(const mstack_type& rhs) : stack_type(rhs) {};
 	~MutantStack() {};
 	mstack_type&	operator=(const mstack_type& rhs)
 	{
-		mstack_type::stack::operator=(rhs);
+		stack_type::operator=(rhs);
 		return (*this);
 	}
 
