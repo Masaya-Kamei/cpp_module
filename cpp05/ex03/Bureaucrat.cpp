@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 09:55:44 by mkamei            #+#    #+#             */
-/*   Updated: 2022/05/20 16:07:07 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/05/23 15:42:29 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,16 @@ int			Bureaucrat::getGrade() const { return (grade_); }
 
 int		Bureaucrat::incGrade()
 {
-	if (grade_ + 1 > kGradeLowest_)
-		throw Bureaucrat::GradeTooLowException();
-	return (++grade_);
+	if (grade_ == kGradeHighest_)
+		throw Bureaucrat::GradeTooHighException();
+	return (--grade_);
 }
 
 int		Bureaucrat::decGrade()
 {
-	if (grade_ - 1 < kGradeHighest_)
-		throw Bureaucrat::GradeTooHighException();
-	return (--grade_);
+	if (grade_ == kGradeLowest_)
+		throw Bureaucrat::GradeTooLowException();
+	return (++grade_);
 }
 
 void	Bureaucrat::signForm(Form& form) const

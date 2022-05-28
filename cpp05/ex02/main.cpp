@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 09:36:21 by mkamei            #+#    #+#             */
-/*   Updated: 2022/05/20 16:20:52 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/05/23 15:46:09 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 static void	execute_all_form(Bureaucrat& bureaucrat)
 {
 	const int	kFormNum = 3;
-	ShrubberyCreationForm	sf("sft");
-	RobotomyRequestForm		rf("rft");
-	PresidentialPardonForm	pf("pft");
+	ShrubberyCreationForm	sf("t1");
+	RobotomyRequestForm		rf("t2");
+	PresidentialPardonForm	pf("t3");
 	Form*	forms[] = {&sf, &rf, &pf};
 
 	for (int i = 0; i < kFormNum; i++)
@@ -37,9 +37,9 @@ int	main()
 {
 	try
 	{
-		Bureaucrat	b("b", 1);
-		std::cout << b << "\n" << std::endl;
-		execute_all_form(b);
+		Bureaucrat	b1("b1", 1);
+		std::cout << b1 << "\n" << std::endl;
+		execute_all_form(b1);
 	}
 	catch (const std::exception& e)
 	{
@@ -49,9 +49,9 @@ int	main()
 
 	try
 	{
-		Bureaucrat	b("b", 60);
-		std::cout << b << "\n" << std::endl;
-		execute_all_form(b);
+		Bureaucrat	b1("b1", 60);
+		std::cout << b1 << "\n" << std::endl;
+		execute_all_form(b1);
 	}
 	catch (const std::exception& e)
 	{
@@ -59,7 +59,7 @@ int	main()
 	}
 	std::cout << "-----------------------------------------------" << std::endl;
 
-	ShrubberyCreationForm	sf1("sft");
+	ShrubberyCreationForm	sf1("t1");
 	ShrubberyCreationForm	sf2(sf1);
 	ShrubberyCreationForm	sf3;
 	sf3 = sf2;

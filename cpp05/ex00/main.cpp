@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 09:36:21 by mkamei            #+#    #+#             */
-/*   Updated: 2022/05/20 15:01:17 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/05/28 13:11:22 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main()
 {
 	try
 	{
-		Bureaucrat	a("a", 0);
+		Bureaucrat	b1("b1", 0);
 	}
 	catch(const std::exception& e)
 	{
@@ -27,7 +27,7 @@ int	main()
 
 	try
 	{
-		Bureaucrat	a("a", 200);
+		Bureaucrat	b1("b1", 200);
 	}
 	catch(const std::exception& e)
 	{
@@ -37,11 +37,11 @@ int	main()
 
 	try
 	{
-		Bureaucrat	a("a", 1);
-		std::cout << a << std::endl;
-		std::cout << a.incGrade() << std::endl;
-		std::cout << a.decGrade() << std::endl;
-		std::cout << a.decGrade() << std::endl;
+		Bureaucrat	b1("b1", 1);
+		std::cout << b1 << std::endl;
+		std::cout << b1.decGrade() << std::endl;
+		std::cout << b1.incGrade() << std::endl;
+		std::cout << b1.incGrade() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -51,11 +51,11 @@ int	main()
 
 	try
 	{
-		Bureaucrat	a("a", 150);
-		std::cout << a << std::endl;
-		std::cout << a.decGrade() << std::endl;
-		std::cout << a.incGrade() << std::endl;
-		std::cout << a.incGrade() << std::endl;
+		Bureaucrat	b1("b1", 150);
+		std::cout << b1 << std::endl;
+		std::cout << b1.incGrade() << std::endl;
+		std::cout << b1.decGrade() << std::endl;
+		std::cout << b1.decGrade() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -63,13 +63,13 @@ int	main()
 	}
 	std::cout << "\n---------------------------------------------" << std::endl;
 
-	Bureaucrat	a("a", 150);
-	Bureaucrat	b(a);
-	Bureaucrat	c;
-	c = b;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << c << std::endl;
+	Bureaucrat	b1("b1", 150);
+	Bureaucrat	b2(b1);
+	Bureaucrat	b3;
+	b3 = b2;
+	std::cout << b1 << std::endl;
+	std::cout << b2 << std::endl;
+	std::cout << b3 << std::endl;
 
 	return (0);
 }
