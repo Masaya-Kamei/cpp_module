@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 14:14:37 by mkamei            #+#    #+#             */
-/*   Updated: 2022/05/22 16:45:35 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/06/01 14:28:50 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ private:
 		std::memcpy(&literal, &any_literal_, sizeof(T));
 		TplPrintChar<T>(literal);
 		TplPrintInt<T>(literal);
-		std::cout << std::fixed;
 		TplPrintFloat<T>(literal);
 		TplPrintDouble<T>(literal);
 	}
