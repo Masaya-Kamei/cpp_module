@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 16:49:34 by mkamei            #+#    #+#             */
-/*   Updated: 2022/05/22 17:09:49 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/06/01 14:33:41 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,12 @@ int	main()
 
 	Data	d1(42, "Hello");
 	Data	*d1_ptr = deserialize(serialize(&d1));
+	std::cout << *d1_ptr << std::endl;
 	std::cout << (&d1 == d1_ptr && d1 == *d1_ptr) << std::endl;
 
 	Data	d2(-1, "");
 	Data	*d2_ptr = deserialize(serialize(&d2));
+	std::cout << *d2_ptr << std::endl;
 	std::cout << (&d2 == d2_ptr && d2 == *d2_ptr) << std::endl;
 
 	return (0);
