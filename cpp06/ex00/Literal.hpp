@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 14:14:37 by mkamei            #+#    #+#             */
-/*   Updated: 2022/06/01 14:28:50 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/06/01 17:01:45 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,16 @@ private:
 		kInvalid= 4,
 	};
 
-	LiteralType		type_;
-	unsigned long 	any_literal_;
+	struct AnyLiteral {
+		LiteralType		type;
+		union {
+			char	c;
+			int		d;
+			float	f;
+			double	lf;
+		};
+	};
+	AnyLiteral 	any_literal_;
 
 	char		StrToChar(const std::string& s, bool& ok) const;
 	int			StrToInt(const std::string& s, bool& ok) const;
@@ -46,17 +54,8 @@ private:
 	double		StrToDouble(const std::string& s, bool& ok) const;
 
 	template <typename T>
-	void	TplSetLiteral(const T literal, const LiteralType type)
+	void	TplPrintAllScalarValue(const T& literal) const
 	{
-		type_ = type;
-		std::memcpy(&any_literal_, &literal, sizeof(T));
-	}
-
-	template <typename T>
-	void	TplPrintAllScalarValue() const
-	{
-		T 	literal;
-		std::memcpy(&literal, &any_literal_, sizeof(T));
 		TplPrintChar<T>(literal);
 		TplPrintInt<T>(literal);
 		TplPrintFloat<T>(literal);
