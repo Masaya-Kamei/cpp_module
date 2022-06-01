@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 14:14:24 by mkamei            #+#    #+#             */
-/*   Updated: 2022/05/22 16:44:49 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/06/01 17:09:39 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,38 +15,41 @@
 Literal::Literal(const std::string& s)
 {
 	bool	ok;
-	type_ = kInvalid;
+	any_literal_.type = kInvalid;
 
 	char	c = StrToChar(s, ok);
 	if (ok) {
-		TplSetLiteral<char>(c, kChar);
+		any_literal_.type = kChar;
+		any_literal_.c = c;
 		return ;
 	}
 	int		d = StrToInt(s, ok);
 	if (ok) {
-		TplSetLiteral<int>(d, kInt);
+		any_literal_.type = kInt;
+		any_literal_.d = d;
 		return ;
 	}
 	float	f = StrToFloat(s, ok);
 	if (ok) {
-		TplSetLiteral<float>(f, kFloat);
+		any_literal_.type = kFloat;
+		any_literal_.f = f;
 		return;
 	}
 	double	lf = StrToDouble(s, ok);
 	if (ok) {
-		TplSetLiteral<double>(lf, kDouble);
+		any_literal_.type = kDouble;
+		any_literal_.lf = lf;
 		return;
 	}
 }
 
 Literal::Literal(const Literal& rhs) :
-	type_(rhs.type_), any_literal_(rhs.any_literal_)
+	any_literal_(rhs.any_literal_)
 {
 }
 
 Literal&	Literal::operator=(const Literal& rhs)
 {
-	type_ = rhs.type_;
 	any_literal_ = rhs.any_literal_;
 	return (*this);
 }
@@ -101,19 +104,19 @@ double	Literal::StrToDouble(const std::string& s, bool& ok) const
 
 void	Literal::PrintAllScalarValue() const
 {
-	switch (type_)
+	switch (any_literal_.type)
 	{
 	case kChar:
-		TplPrintAllScalarValue<char>();
+		TplPrintAllScalarValue<char>(any_literal_.c);
 		break;
 	case kInt:
-		TplPrintAllScalarValue<int>();
+		TplPrintAllScalarValue<int>(any_literal_.d);
 		break;
 	case kFloat:
-		TplPrintAllScalarValue<float>();
+		TplPrintAllScalarValue<float>(any_literal_.f);
 		break;
 	case kDouble:
-		TplPrintAllScalarValue<double>();
+		TplPrintAllScalarValue<double>(any_literal_.lf);
 		break;
 	default:
 		std::cout << "char: impossible\n"
