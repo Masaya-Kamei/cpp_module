@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 12:55:45 by mkamei            #+#    #+#             */
-/*   Updated: 2022/05/23 13:13:34 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/06/06 13:41:50 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	iter(T* arr, const size_t len, void (* const f)(T&))
 }
 
 template <typename T>
-void	iter(T* arr, const size_t len, void (* const f)(const T&))
+void	iter(const T* arr, const size_t len, void (* const f)(const T&))
 {
 	if (arr == NULL || f == NULL)
 		return ;
