@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 13:21:00 by mkamei            #+#    #+#             */
-/*   Updated: 2022/05/24 09:22:31 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/06/06 14:25:44 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,19 @@
 #include <iostream>
 
 template <typename T>
-void	TestArrayFunc(Array<T> a)
+void	TestArrayFunc(Array<T>& a)
+{
+	try {
+		for (size_t i = 0; i < a.size() + 1; i++)
+			std::cout << a[i] << ", ";
+	} catch (const std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << a.size() << std::endl;
+}
+
+template <typename T>
+void	TestArrayFunc(const Array<T>& a)
 {
 	try {
 		for (size_t i = 0; i < a.size() + 1; i++)
@@ -35,8 +47,7 @@ int		main()
 	TestArrayFunc<int>(a);
 
 	std::cout << "\nTest b" << std::endl;
-	Array<int> b(a);
-	b[0] = 4;
+	const Array<int> b(a);
 	TestArrayFunc<int>(b);
 
 	std::cout << "\nTest c" << std::endl;
