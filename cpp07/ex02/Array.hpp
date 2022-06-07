@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 13:21:22 by mkamei            #+#    #+#             */
-/*   Updated: 2022/05/24 09:19:37 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/06/06 13:50:54 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ public:
 	Array&	operator=(const Array& rhs);
 	~Array();
 
-	T&		operator[](const unsigned int i);
-	size_t	size() const;
+	T&			operator[](const unsigned int i);
+	const T&	operator[](const unsigned int i) const;
+	size_t		size() const;
 
 private:
 	T*		arr_;
@@ -58,9 +59,17 @@ template <typename T>
 Array<T>::~Array() { delete[] arr_; }
 
 template <typename T>
-T&	Array<T>::operator[](const unsigned int i)
+T&		Array<T>::operator[](const unsigned int i)
 {
-	if (i < 0 || i >= size_)
+	if (i >= size_)
+		throw std::out_of_range("Access to out of range.");
+	return (arr_[i]);
+}
+
+template <typename T>
+const T&	Array<T>::operator[](const unsigned int i) const
+{
+	if (i >= size_)
 		throw std::out_of_range("Access to out of range.");
 	return (arr_[i]);
 }
