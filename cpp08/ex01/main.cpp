@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 14:44:41 by mkamei            #+#    #+#             */
-/*   Updated: 2022/05/25 11:12:10 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/06/06 11:05:27 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,30 +30,28 @@ int	main()
 
 	std::cout << std::endl;
 
+	Span sp = Span(10000);
+
+	try {
+		sp.shortestSpan();
+	} catch (const std::exception& e) { std::cout << e.what() << std::endl; }
+	try {
+		sp.longestSpan();
+	} catch (const std::exception& e) { std::cout << e.what() << std::endl; }
+
+	int	nums[] = {6, 3, 17, 9, 11};
+	for (unsigned int i = 0; i < 2000; i++)
 	{
-		Span sp = Span(10000);
-
-		try {
-			sp.shortestSpan();
-		} catch (const std::exception& e) { std::cout << e.what() << std::endl; }
-		try {
-			sp.longestSpan();
-		} catch (const std::exception& e) { std::cout << e.what() << std::endl; }
-
-		int	nums[] = {6, 3, 17, 9, 11};
-		for (unsigned int i = 0; i < 2000; i++)
-		{
-			for (unsigned int j = 0; j < 5; j++)
-				nums[j] += 1;
-			sp.rangeAddNumber(nums, nums + 5);
-		}
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << std::endl;
-
-		try {
-			sp.addNumber(42);
-		} catch (const std::exception& e) { std::cout << e.what() << std::endl; }
+		for (unsigned int j = 0; j < 5; j++)
+			nums[j] += 1;
+		sp.rangeAddNumber(nums, nums + 5);
 	}
+	std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.longestSpan() << std::endl;
+
+	try {
+		sp.addNumber(42);
+	} catch (const std::exception& e) { std::cout << e.what() << std::endl; }
 
 	return (0);
 }
